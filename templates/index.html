@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block body %}
+<body>
+
+<H3>Dinners for Days</H3>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<H3>Shopping list Builder</H3>
+
+<ul>
+{% for object in objects %}
+<li><strong>{{ object.food|safe }}</strong> as part of the <strong>{{ object.category|safe }}</strong>
+{% else %}
+<li><em>The Shopping list seems empty please populate below.</em></li>
+{% endfor %}
+</ul>
+
+<b>What do we need to get in the Shopa!</b>
+
+<form method="POST" action="/new">
+    {{ form.hidden_tag() }}
+    {{ form.food.label }} {{ form.food(size=40) }}
+    <br/>
+    {{ form.category.label }} {{ form.category(size=50) }}
+    <br/>
+    {{ form.submit }}
+</form>
+
+
+
+</body>
+
+{% endblock %}
+
+</html>
