@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+<body>
+    <div class=container>
+
+       <div class="text-center">
+
+        <div class=btn-group>
+
+            <legend>Login</legend>
+            <form action="" method="post">
+                <input type="text" placeholder="Username" name="username" value="{{ request.form.username }}">
+                <input type="password" placeholder="Password" name="password" value="{{ request.form.password }}">
+                <input class="btn btn-warning" type="submit" value="Login">
+            </form>
+            {% if error %}<p class="error">{{ error }}
+            {% endif %}
+            {% for message in get_flashed_messages() %}{{ message }}{% endfor %}
+
+         </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+<ul>
+{% for object in objects %}
+<li><strong>{{ object.food|safe }}</strong> as part of the <strong>{{ object.category|safe }}</strong>
+{% else %}
+<li><em>The Shopping list seems empty please populate below.</em></li>
+{% endfor %}
+</ul>
+
+objects = Shopping.query.all()
+
+
+*******************************************
