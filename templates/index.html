@@ -1,71 +1,8 @@
 {% extends "base.html" %}
 
 {% block body %}
-<body>
 
-<div class="container">
-
-        <div class="container text-center">
-            <form class="form-inline"></form>
-                <div class ="form-group">
-                    <form method="POST" action="/new">
-                            {{ form.hidden_tag() }}
-                            {{ form.food.label }} {{ form.food(size=25) }}
-                            {{ form.category.label }} {{ form.category(size=25) }}
-                        <button class="btn btn-default"> {{ form.submit }}</button>
-                </div>
-            </form>
-        </div>
-
-</div>
-<div class="container">
-    <section>
-        <div class="page-header">
-           <h3>Lists</h3>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <blockquote>
-                        <h4>Dairy Section</h4>
-                            <ol>
-                            {% for dairy in dairy %}
-                            <li><strong>{{ dairy.food|safe }}</strong>
-                                <a class="btn btn btn-danger btn-xs btn pull-right" href="/deleteitem">Got It</a>
-                            {% endfor %}
-                            </ol>
-                </blockquote>
-            </div>
-
-            <div class="col-lg-4">
-                <blockquote>
-                        <h4>Hygiene 333333  Section</h4>
-                            <ul>
-                            {% for hygiene in hygiene %}
-                            <li><strong>{{ hygiene.food|safe }}</strong>
-                            {% endfor %}
-                            </ul>
-                </blockquote>
-            </div>
-
-              <div class="col-lg-4">
-                <blockquote>
-                        <h4>Kids Section</h4>
-                            <ul>
-                            {% for kids in kids %}
-                            <li><strong>{{ kids.food|safe }}</strong>
-                            {% endfor %}
-                            </ul>
-                </blockquote>
-            </div>
-
-        </div>
-
-    </section>
-
-</div>
-
-
-</body>
+<P> CHESEEEEE</P>
 
 {% endblock %}
 

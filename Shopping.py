@@ -37,7 +37,7 @@ def login():
         else:
             session['logged_in'] = True
             flash('You were logged in')
-            return redirect(url_for('root'))
+            return redirect(url_for('index'))
     return render_template('login.html', error=error)
 
 
@@ -46,7 +46,7 @@ def login():
 def logout():
     session.pop('logged_in', None)
     flash('You were logged out')
-    return redirect(url_for('root'))
+    return redirect(url_for('index'))
 
 
 #Database Section
@@ -67,12 +67,18 @@ class ShoppingForm(Form):
 
 @app.route("/")
 @login_required
+def index():
+    return render_template('index.html')
+
+
+@app.route("/shopping")
+@login_required
 def root():
     form = ShoppingForm()
     dairy = Shopping.query.filter(Shopping.food.any and Shopping.category == 'dairy')
     hygiene = Shopping.query.filter(Shopping.food.any and Shopping.category == 'hygiene')
     kids = Shopping.query.filter(Shopping.food.any and Shopping.category == 'kids')
-    return render_template('index.html', form=form, dairy=dairy, hygiene=hygiene, kids=kids)
+    return render_template('shopping.html', form=form, dairy=dairy, hygiene=hygiene, kids=kids)
 
 
 @app.route('/new', methods=['GET', 'POST'])
